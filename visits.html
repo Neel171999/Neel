@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Visit Details</title>
+</head>
+<body>
+    <h1>Field Visit Details</h1>
+    <table border="1">
+        <tr>
+            <th>Serial No</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Details</th>
+        </tr>
+        {% for index, visit in visits %}
+            <tr>
+                <td>{{ index }}</td>
+                <td>{{ visit['name'] }}</td>
+                <td><a href="https://www.google.com/maps/search/?api=1&query={{ visit['latitude'] }},{{ visit['longitude'] }}" target="_blank">{{ visit['location'] }}</a></td>
+                <td>{{ visit['details'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
